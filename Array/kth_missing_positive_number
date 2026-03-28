@@ -1,0 +1,34 @@
+//Problem: Kth Missing Positive number
+//Link: https://leetcode.com/problems/kth-missing-positive-number/
+
+//Appraoch: We use the idea:
+// Missing numbers till index i = arr[i] - (i + 1)
+// Steps:
+// Loop through array
+// Calculate missing numbers at each index
+// If missing ≥ k → answer = k + i
+// If not found → answer = k + n
+
+//Space Complexity:O(1)
+//Time Complexity:O(n)
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+
+        for(int i=0;i<arr.size();i++) {
+            int missing=arr[i]-(i+1);
+
+            if(missing>=k) {
+                return k+i;
+            }
+        }
+        return k+arr.size();
+        
+    }
+};
