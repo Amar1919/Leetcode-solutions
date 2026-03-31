@@ -1,6 +1,6 @@
 //Problem: Rotate string
 //Link:https://leetcode.com/problems/rotate-string/
-//Approach:💡 Approach
+//Approach:
 
 // To check if one string is a rotation of another:
 
@@ -8,7 +8,7 @@
 // 2.Concatenate the string with itself → s + s
 // 3.Check if goal is a substring of (s + s)
 
-// 👉 Reason: All possible rotations of s will exist inside s + s
+//  Reason: All possible rotations of s will exist inside s + s
 
 //Space complexity:O(n)
 //Time complexity:O(n)
