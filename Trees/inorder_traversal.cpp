@@ -1,0 +1,49 @@
+// Problem: Binary Tree Inorder Traversal
+
+// Approach: Use recursion to visit the left subtree before the current node.
+
+// Recursively traverse the left subtree, process the root, then traverse the right subtree.
+
+// Follow the order: Left → Root → Right.
+
+// Time Complexity: O(n) | Space Complexity: O(h)
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+
+//Definition for a binary tree node.
+  struct TreeNode {
+      int val;
+      TreeNode *left;
+      TreeNode *right;
+      TreeNode() : val(0), left(nullptr), right(nullptr) {}
+      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  };
+
+class Solution {
+public:
+
+    void inorder(TreeNode* root,vector<int>& ans) {
+        if(root==NULL) return;
+
+        inorder(root->left,ans);
+        ans.push_back(root->val);
+        inorder(root->right,ans);
+    }
+    vector<int> inorderTraversal(TreeNode* root) {
+        if(root==NULL) return {};
+
+        vector<int> ans;
+        inorder(root,ans);
+
+        return ans;
+        
+    }
+};
