@@ -1,12 +1,12 @@
 // Problem: Construct Binary Tree from Preorder and Inorder Traversal
 
-// Approach: Use the first element of preorder as the root and find it in inorder.
+// Approach: Use the first element of preorder as the root and find its position in inorder using a hash map.
 
-// Calculate the left subtree size using the root's position in inorder.
+// Calculate the left subtree size and recursively construct the left and right subtrees.
 
-// Recursively construct the left and right subtrees using the corresponding ranges.
+// Build the hash map once to achieve constant average-time root lookup.
 
-// Time Complexity: O(n²) | Space Complexity: O(n)
+// Time Complexity: O(n) | Space Complexity: O(n)
 
 
 
@@ -27,31 +27,36 @@ using namespace std;
       TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
   };
 
-class Solution {
+
+  class Solution {
 public:
-    TreeNode* solve(vector<int>& preorder,vector<int>& inorder,int ps,int pe,int is,int ie) {
+    TreeNode* solve(vector<int>& preorder,vector<int>& inorder,int ps,int pe,int is,int ie,unordered_map<int,int>& mp) {
         if(ps>pe || is>ie) return NULL;
+
+
         TreeNode* root=new TreeNode(preorder[ps]);
-        int rootIdx=is;
+        int rootIdx=mp[root->val];
 
-        while(inorder[rootIdx]!=root->val) {
-            rootIdx++;
 
-        }
 
             int leftSize=rootIdx-is;
 
-            root->left=solve(preorder,inorder,ps+1,ps+leftSize,is,rootIdx-1);
+            root->left=solve(preorder,inorder,ps+1,ps+leftSize,is,rootIdx-1,mp);
 
-            root->right=solve(preorder,inorder,ps+leftSize+1,pe,rootIdx+1,ie);
+            root->right=solve(preorder,inorder,ps+leftSize+1,pe,rootIdx+1,ie,mp);
 
             
         
         return root;
     }
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        unordered_map<int,int> mp;
 
-        return solve(preorder,inorder,0,preorder.size()-1,0,inorder.size()-1);
+        for(int i=0;i<inorder.size();i++) {
+            mp[inorder[i]]=i;
+        }
+
+        return solve(preorder,inorder,0,preorder.size()-1,0,inorder.size()-1,mp);
         
     }
 };
