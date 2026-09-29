@@ -1,12 +1,12 @@
-// Problem: Maximum Width of Binary Tree
+// Problem: Count Complete Tree Nodes
 
-// Approach: Use BFS with a queue storing each node along with its position index.
+// Approach: Use the height of the leftmost and rightmost paths to identify perfect subtrees.
 
-// Normalize indices at every level to prevent integer overflow in deep trees.
+// If both heights are equal, calculate the number of nodes directly using 2^h - 1.
 
-// Calculate the width using the difference between the rightmost and leftmost normalized indices.
+// Otherwise, recursively count the nodes in the left and right subtrees.
 
-// Time Complexity: O(n) | Space Complexity: O(n)
+// Time Complexity: O(log² n) | Space Complexity: O(log n)
 
 
 
