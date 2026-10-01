@@ -1,3 +1,16 @@
+// Problem: Floor and Ceil of a Binary Search Tree
+
+// Approach: Traverse the BST iteratively while comparing the key with each node.
+
+// If node value < key, update floor and move to the right subtree.
+
+// If node value > key, update ceil and move to the left subtree.
+
+// Time Complexity: O(h) | Space Complexity: O(1)
+
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
