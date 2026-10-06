@@ -1,0 +1,42 @@
+// Problem: Merge Intervals
+// Link: https://leetcode.com/problems/merge-intervals/
+// Approach: Sorting + Greedy (merge overlapping intervals)
+// Data Structure: Array (vector of vectors)
+// Space Complexity: O(n)
+// Time Complexity: O(n log n)
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        
+        if(intervals.empty()) return {};
+
+        sort(intervals.begin(), intervals.end());
+
+        vector<vector<int>> ans;
+
+        int prevStart = intervals[0][0];
+        int prevEnd   = intervals[0][1];
+
+        for(int i = 1; i < intervals.size(); i++) {
+            int currStart = intervals[i][0];
+            int currEnd   = intervals[i][1];
+
+            if(currStart <= prevEnd) {
+                prevEnd = max(prevEnd, currEnd);
+            } else {
+                ans.push_back({prevStart, prevEnd});
+                prevStart = currStart;
+                prevEnd   = currEnd;
+            }
+        }
+
+        ans.push_back({prevStart, prevEnd});
+
+        return ans;
+    }
+};
