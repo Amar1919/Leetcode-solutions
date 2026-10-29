@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Admin/OneDrive/Desktop/Leetcode-solutions",
-      "program": "c:/Users/Admin/OneDrive/Desktop/Leetcode-solutions/build/Debug/outDebug",
+      "cwd": "c:/Users/Admin/OneDrive/Desktop/Leetcode-solutions/stack and queues",
+      "program": "c:/Users/Admin/OneDrive/Desktop/Leetcode-solutions/stack and queues/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
