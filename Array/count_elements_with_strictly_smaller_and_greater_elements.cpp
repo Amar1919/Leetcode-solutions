@@ -4,7 +4,7 @@
 
 // Traverse the array and check whether each element equals min or max.
 
-// Count elements that are neither minimum nor maximum.
+// Count elements that are either minimum nor maximum.
 
 // Return n - count of minimum and maximum elements.
 
