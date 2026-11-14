@@ -1,4 +1,4 @@
-// Problem: Minimum Moves to Equal Array Elements
+// Problem: Minimum Moves to Equal Array Elements 1
 
 // Approach: Find the minimum element using min_element().
 
